@@ -4,7 +4,7 @@ import React from 'react';
 import Tag from './Tag';
 
 const PhotoDetails = async ({ id, lang }) => {
-    const res = await fetch(`${process.env.BaseURL}/photos/${id}`)
+    const res = await fetch(`https://photo-feed-zh.vercel.app/photos/${id}`)
     const details = await res.json()
     const dictionary = await getDictionary(lang)
     return (
