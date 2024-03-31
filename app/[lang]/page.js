@@ -1,12 +1,14 @@
-// import Image from "next/image";
 
-import { getDictionary } from "./dictionaries"
+import PhotoList from "@/components/Photolist"
+
 
 
 export default async function Home({ params: { lang } }) {
-  const dictionary = await getDictionary(lang)
+  const response = await fetch(`${process.env.BaseURL}/photos`)
+  const photos = await response.json()
 
   return (
-    <h1>{dictionary.followers}: 5</h1>
-  )
+    <div>
+      <PhotoList photos={photos} />
+    </div>)
 }
